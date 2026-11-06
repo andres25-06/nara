@@ -1,0 +1,440 @@
+{
+  "nav": {
+    "brandSubtitle": "Comprehensive Accompaniment",
+    "home": "Home",
+    "patient": {
+      "label": "Patient",
+      "items": {
+        "journey": {
+          "title": "My Journey & Stages",
+          "desc": "Diagnosis, chemotherapy & recovery"
+        },
+        "diary": {
+          "title": "Symptom Diary",
+          "desc": "Daily log to share with oncologist"
+        },
+        "calm": {
+          "title": "Sensory Micro-Calm",
+          "desc": "3-7 min audios & Piko-Piko breathing"
+        },
+        "circles": {
+          "title": "Weekly Intimate Circle",
+          "desc": "Confidential Zoom sessions"
+        }
+      }
+    },
+    "caregivers": {
+      "label": "Caregivers",
+      "items": {
+        "haven": {
+          "title": "Caregivers Haven",
+          "desc": "Practical guide for family and partners"
+        },
+        "dictionary": {
+          "title": "What to Say & What to Avoid",
+          "desc": "Comforting phrases without clichés"
+        },
+        "children": {
+          "title": "Talking with Children",
+          "desc": "Age-by-age guide: kids, tweens & teens"
+        },
+        "selfcare": {
+          "title": "Caregiver Self-Care & Respite",
+          "desc": "Burnout check & rest shift planning"
+        },
+        "circles": {
+          "title": "Family Support Circles",
+          "desc": "Safe emotional debrief for loved ones"
+        }
+      }
+    },
+    "resources": {
+      "label": "Resources",
+      "items": {
+        "nutrition": {
+          "title": "Nutrition & Recipes",
+          "desc": "Golden broth, smoothies & nausea relief"
+        },
+        "library": {
+          "title": "Guides & Workbooks (PDF)",
+          "desc": "Questions for oncologist & symptom logs"
+        },
+        "mobility": {
+          "title": "Mindful Movement",
+          "desc": "Chair yoga & post-surgery mobility"
+        },
+        "rights": {
+          "title": "Rights & Benefits",
+          "desc": "Medical leave forms & prosthesis bank"
+        }
+      }
+    },
+    "community": {
+      "label": "Community",
+      "items": {
+        "circles": {
+          "title": "Support Circles (Zoom)",
+          "desc": "Weekly moderated virtual gatherings"
+        },
+        "videos": {
+          "title": "Video Catalog",
+          "desc": "Practical workshops with specialists"
+        },
+        "voice": {
+          "title": "NARA · Voice 24/7",
+          "desc": "Speak with your companion anytime"
+        }
+      }
+    },
+    "voiceBtn": "Voice with NARA",
+    "signIn": "Sign In",
+    "switchLangTitle": "Switch language"
+  },
+  "loginModal": {
+    "badge": "Community Love Heals · NARA",
+    "title": "Welcome to your safe space",
+    "desc": "Sign in to save your favorite sessions, clinical nutrition recipes, and upcoming community circles.",
+    "emailPlaceholder": "Your email address",
+    "passwordPlaceholder": "Your password",
+    "submitBtn": "Sign In"
+  },
+  "voiceWidget": {
+    "statusLive": "NARA · Live Voice Accompaniment",
+    "statusListening": "Listening to your voice now...",
+    "statusSpeaking": "NARA is speaking to you...",
+    "statusIdle": "NARA · Ready to listen",
+    "voiceActive": "Voice active",
+    "voiceMuted": "Muted",
+    "historyBtn": "History",
+    "defaultCaption": "“Hello, I am NARA, your emotional companion. How are you feeling today, and what stage of your journey are you navigating?”",
+    "demoLabel": "🎙️ Speak into microphone or tap to test voice in demo:",
+    "chips": {
+      "chip1": {
+        "label": "\"I'm having a hard day, I'm scared\"",
+        "prompt": "Hello Nara, I am having a hard day, I feel scared"
+      },
+      "chip2": {
+        "label": "\"I'm in chemotherapy\"",
+        "prompt": "I am in chemotherapy and feeling completely exhausted"
+      },
+      "chip3": {
+        "label": "\"Let's breathe together\"",
+        "prompt": "Yes, let us breathe together please"
+      }
+    },
+    "initialChatMsg": "Hello, I am NARA, your emotional companion. How are you feeling right now, and how can I support you?",
+    "inputPlaceholder": "Type a message or speak with NARA...",
+    "greetingPill": "🎙️ Talk by voice with NARA without having to type",
+    "speakBtn": "Speak",
+    "floatingTitle": "NARA · Voice 24/7",
+    "floatingSub": "Speak or Message Me",
+    "spokenPrefix": "You",
+    "greetingSpeech": "Hello sweetheart... I'm Nara, your friend and safe haven. You don't have to pretend everything is okay here or be strong all the time. How are you really feeling today? Tell me, I'm listening with all my heart.",
+    "replies": {
+      "chemoHard": "Oh my dear, come here and let me hold you close. I'm so sorry you're having such a tough day during chemotherapy. You don't have to push yourself or pretend to be okay; just breathe gently with me. Your only job today is to rest. Would you like us to take a slow one-minute breathing pause together to ease your body?",
+      "scared": "Hello sweetheart, I'm right here with you... I'm Nara, your friend. I hear you and I won't let go of your hand. It's so completely normal to feel afraid or want to cry today; you don't have to carry this alone. Tell me: what stage of your journey are you in right now, newly diagnosed or in treatment?",
+      "chemoTired": "I'm holding your hand tight, friend. I know how deeply chemo drains both body and spirit. Give yourself permission to rest without any guilt today, and try taking tiny sips of ice-cold water with mint or ginger. I'll stay right here talking softly with you. Shall we do a gentle breathing exercise together?",
+      "breathe": "Let's do it together, dear. Gently close your eyes... Take a deep breath in through your nose, feeling calm in your chest... one, two, three, four... Hold it gently... and let it out slowly, releasing the weight from your shoulders. You are doing wonderfully. I am right here with you.",
+      "diagnosis": "I know that receiving a diagnosis shakes your entire world. Let's take it one single day at a time, without rushing. I'm here to explain each step with warmth, free from cold medical jargon.",
+      "family": "Supporting someone you love also requires tenderness with yourself. Sometimes the greatest support is simply holding their hand in quiet warmth without expecting anyone to stay strong.",
+      "default": "I'm listening with all my heart, friend. You don't have to type when you feel exhausted; just talk to me anytime and I'll walk beside you step by step. How is your body feeling right now?"
+    }
+  },
+  "footer": {
+    "subtitle": "Comprehensive Accompaniment",
+    "mission": "A safe haven to navigate breast cancer without isolation. Emotional, medical, and practical support for patients, partners, and families.",
+    "endorsed": "Endorsed by psycho-oncologists & clinical nutritionists",
+    "colPathways": {
+      "title": "Care Pathways",
+      "patientJourney": "Patient Journey (Stages)",
+      "symptomDiary": "My Symptom Diary",
+      "microCalm": "Micro-Calm & Breathwork",
+      "caregiverHaven": "Caregiver Haven & Partners",
+      "whatToSay": "What to say and what to avoid",
+      "talkChildren": "How to talk with children"
+    },
+    "colPillars": {
+      "title": "4 Pillars & Resources",
+      "nutrition": "Nutrition & Recipes (Nausea)",
+      "guides": "Downloadable Guides & Workbooks (PDF)",
+      "mobility": "Gentle Mobility & Restorative Yoga",
+      "rights": "Workplace Rights & Medical Leave",
+      "prosthetics": "Prosthetics & Wigs Directory"
+    },
+    "colHelpline": {
+      "title": "24/7 Helpline & Care",
+      "phone": "800 240 4325",
+      "phoneSub": "Toll-free compassionate support line",
+      "chat": "Direct Support Chat",
+      "chatSub": "Gentle messaging guidance",
+      "circles": "Weekly Listening Circles (Zoom)",
+      "circlesSub": "Free weekly guided group sessions",
+      "voiceCta": "Speak with NARA Live Voice"
+    },
+    "copyright": "Love Heals · NARA Foundation © 2026. Designed with warmth, dignity, and care.",
+    "privacy": "Privacy & Confidentiality",
+    "terms": "Terms of Service",
+    "disclaimer": "Medical Disclaimer"
+  },
+  "home": {
+    "hero": {
+      "badge": "Endorsed by psycho-oncologists & clinical nutrition",
+      "titleLine1": "You don't walk alone.",
+      "titleLine2": "We walk beside you",
+      "titleLine3": "and those you love.",
+      "description": "Comprehensive emotional, clinical, and practical support to guide you through diagnosis, active treatment, and breast cancer recovery together with your family, partner, and friends in a warm haven.",
+      "orderLabel": "THE ORDER OF YOUR JOURNEY:",
+      "steps": {
+        "step1": "Your Current Stage",
+        "step2": "Nutrition & Books",
+        "step3": "Oceanfront Videos",
+        "step4": "Live Circles"
+      },
+      "trust": {
+        "stat1": "+2,500 Families supported",
+        "stat2": "100% Free & confidential",
+        "stat3": "24/7 Gentle support"
+      },
+      "glassCard": {
+        "badge": "✦ Choose Your Personalized Path",
+        "title": "Where are you joining us from today?",
+        "subtitle": "Choose your path to access tailored tools, video workshops, nutrition plans, and compassionate guides:",
+        "patient": {
+          "tag": "Specialized Path",
+          "title": "I am a Patient",
+          "desc": "Step-by-step guidance from day one, emotional grounding, specialized nutrition, and checklists for every doctor visit.",
+          "cta": "Explore my path",
+          "badge": "1,820 active"
+        },
+        "caregiver": {
+          "tag": "Caregiver Network",
+          "title": "I am a Family Member or Caregiver",
+          "desc": "Learn to support without burning out, what to say in difficult moments, guidance for children, and self-care protocols.",
+          "cta": "Family Guide",
+          "badge": "Free"
+        }
+      }
+    },
+    "marquee": {
+      "w1": "Together",
+      "w2": "Rest",
+      "w3": "Breathe",
+      "w4": "Support",
+      "w5": "Heal",
+      "w6": "Love"
+    },
+    "journey": {
+      "badge": "Care Pathway",
+      "title": "Where are you in your journey today?",
+      "subtitle": "Each stage brings unique questions and needs. Select your current phase to access timely and compassionate clinical recommendations.",
+      "tabs": {
+        "tab1": "Newly Diagnosed",
+        "tab2": "Chemo or Radiation",
+        "tab3": "Surgery & Reconstruction",
+        "tab4": "Life in Remission"
+      },
+      "stage1": {
+        "pill": "Step 1 · Breathe, you are not alone",
+        "title": "I have just been diagnosed",
+        "desc": "The initial impact brings uncertainty and medical information overload. Your priority today is not to have all the answers, but to organize essential questions, quiet the fear, and allow yourself to rest without guilt.",
+        "card1Title": "10 Essential questions for your oncologist",
+        "card1Desc": "To take directly to your second oncology visit.",
+        "card2Title": "Emotional Calm Toolkit",
+        "card2Desc": "Audio-guided somatic grounding exercises.",
+        "btnPrimary": "Download First Days Guide (PDF)",
+        "btnSecondary": "Listen to Psycho-Oncology Audio (7 min)",
+        "tipLabel": "Tip of the day",
+        "tipQuote": "\"Bring a trusted friend or family member to appointments solely to take notes for you.\""
+      },
+      "stage2": {
+        "pill": "Step 2 · Day-by-day gentle strength",
+        "title": "In Chemotherapy or Radiation",
+        "desc": "Concrete tools to relieve side effects, protect sensitive skin, adapt your meals to altered taste buds, and protect your peace of mind between infusion cycles.",
+        "card1Title": "Nutrition for Nausea & Metallic Taste",
+        "card1Desc": "Nourishing clean calories, warm purees, and gentle hydration.",
+        "card2Title": "Oncology Skin Care Protocols",
+        "card2Desc": "Radiodermatitis prevention and gentle skin barrier relief.",
+        "btnPrimary": "Digestive Comfort Recipe Book",
+        "btnSecondary": "Consult with Oncology Dietitian",
+        "tipLabel": "Relief Tip",
+        "tipQuote": "\"Using wooden or bamboo utensils helps prevent the metallic taste while eating.\""
+      },
+      "stage3": {
+        "pill": "Step 3 · Healing & Reconnecting",
+        "title": "Surgery, Mastectomy & Reconstruction",
+        "desc": "Learn safe mobility exercises to prevent lymphedema, surgical drain post-op care, and intimate emotional support to reconnect with your body.",
+        "card1Title": "Physical Therapy & Lymphedema Prevention",
+        "card1Desc": "Safe mobility routines for arms and chest.",
+        "card2Title": "Body Image & Self-Compassion",
+        "card2Desc": "Narrative therapy to honor your healing scars.",
+        "btnPrimary": "Explore Safe Mobility Exercises",
+        "btnSecondary": "Post-Surgical Garment Guide",
+        "tipLabel": "Clinical Insight",
+        "tipQuote": "\"Early guided rehabilitation prevents up to 80% of upper body mobility complications.\""
+      },
+      "stage4": {
+        "pill": "Step 4 · A Gentle Rebirth",
+        "title": "Life After Treatment & Remission",
+        "desc": "Finishing treatment is not the end of emotional processing. Fear of recurrence or feeling unanchored when returning to routine is normal. Here we address scanxiety and redesigning life priorities.",
+        "card1Title": "Managing Scanxiety & Uncertainty",
+        "card1Desc": "Psychological tools before oncology follow-ups.",
+        "card2Title": "Anti-Inflammatory Lifestyle Habits",
+        "card2Desc": "Cardiovascular protection, bone strength, and restorative sleep.",
+        "btnPrimary": "Join the Survivors Circle",
+        "btnSecondary": "Life Reintegration Handbook",
+        "tipLabel": "Community",
+        "tipQuote": "\"Remission is also an invitation to learn how to live without rushing.\""
+      }
+    },
+    "pillars": {
+      "badge": "360° Holistic Approach",
+      "title": "The 4 Pillars of Love Heals Care",
+      "subtitle": "We support more than your medical chart: we care for your plate, your emotions, your body, and the loved ones who stand by you at home.",
+      "viewAll": "View Full Resource Center →",
+      "p1": {
+        "tag": "Clinical Nutrition",
+        "title": "Nutrition & Digestive Comfort",
+        "desc": "Gentle recipes for when nausea, fatigue, or low appetite peak. Hydration protocols and anti-inflammatory meals tailored to each treatment cycle.",
+        "b1": "Nourishing bone & vegetable broths",
+        "b2": "Natural electrolyte beverages",
+        "b3": "Mouth sores & mucositis guide",
+        "cta": "Explore Guides"
+      },
+      "p2": {
+        "tag": "Readings & Workbooks",
+        "title": "Library & Workbooks",
+        "desc": "Recommended survivor memoirs, the acclaimed 'Emotions Journal', and printable 'Essential Questions for Your Oncologist'.",
+        "b1": "Daily symptom diary",
+        "b2": "'Express to Heal' workbook",
+        "b3": "Curated survivor memoirs",
+        "cta": "Download Free"
+      },
+      "p3": {
+        "tag": "Guided Videos",
+        "title": "Video Workshops & Gentle Mobility",
+        "desc": "Restorative oncology yoga capsules, diaphragmatic breathwork for waiting room anxiety, and intimate video stories.",
+        "b1": "Chair yoga & post-op mobility",
+        "b2": "4-7-8 breathwork for restful sleep",
+        "b3": "Voices of women in remission",
+        "cta": "Watch Workshops"
+      },
+      "p4": {
+        "tag": "For Caregivers",
+        "title": "Family, Partners & Children",
+        "desc": "Practical guide: 'What to say and what to avoid', tools to prevent primary caregiver burnout, and how to talk with children with tenderness and truth.",
+        "b1": "Healing vs. invalidating phrases",
+        "b2": "Illustrated storybooks for kids",
+        "b3": "Healthy family care shifts",
+        "cta": "Family Guide"
+      }
+    },
+    "masterclasses": {
+      "badge": "Masterclasses & Healing Video Capsules",
+      "title": "Oceanfront Healing: Guided Sessions",
+      "subtitle": "Audiovisual capsules, clinical psycho-oncology, and gentle movement filmed in the natural serene oceanfront. Watch at your own pace whenever you need peace.",
+      "filters": {
+        "all": "All Videos",
+        "psycho": "Psycho-Oncology",
+        "mobility": "Mobility & Yoga",
+        "family": "For the Family",
+        "meditation": "Meditations"
+      },
+      "featured": {
+        "badge": "Featured Masterclass",
+        "duration": "24 min",
+        "audioSub": "English Audio & Subtitles",
+        "tag1": "Clinical Psycho-Oncology",
+        "tag2": "Fear Management",
+        "title": "Healing with Aloha: Compassionate Conversations",
+        "speaker": "With Dr. Alana Ka'uhane · Psycho-Oncology Specialist",
+        "desc": "An intimate and comforting session on embracing vulnerability after a difficult diagnosis, calming nighttime racing thoughts, and communicating serenely with family.",
+        "item1": "Hawaiian Piko-Piko breathwork protocol",
+        "item2": "Downloadable workbook with journaling prompts",
+        "playBtn": "Play Masterclass",
+        "downloadBtn": "Download Workbook (PDF)"
+      },
+      "cards": {
+        "c1": {
+          "category": "Mobility & Lymphedema",
+          "title": "Gentle Oncology Chair Yoga by the Sea",
+          "desc": "Adapted stretches for neck, shoulders, and chest guided with soothing ocean breeze.",
+          "meta": "Gentle Adapted Level",
+          "cta": "Watch video →"
+        },
+        "c2": {
+          "category": "Guided Meditation",
+          "title": "Ocean Waves & Inner Peace Meditation",
+          "desc": "Real Pacific ocean wave acoustics to dissolve physical anxiety before medical scans.",
+          "meta": "Binaural Audio",
+          "cta": "Watch video →"
+        },
+        "c3": {
+          "category": "Clinical Nutrition",
+          "title": "Cellular Nutrition & Soothing Smoothies",
+          "desc": "Live demonstration of fresh hydrating smoothies and soothing broths for infusion days.",
+          "meta": "Recipes Included",
+          "cta": "Watch video →"
+        }
+      }
+    },
+    "circles": {
+      "badge": "Community & Listening",
+      "title": "Safe & Confidential Virtual Support Circles",
+      "subtitle": "Small group gatherings of up to 10 women, gently moderated by oncology psychologists. No judgment, only deep mutual understanding.",
+      "events": {
+        "e1": {
+          "day": "THU",
+          "num": "17",
+          "month": "OCT",
+          "tag": "Newly Diagnosed",
+          "title": "Circle: 'Navigating Fear and Embracing Peace'",
+          "time": "7:00 PM - 8:30 PM · Via Secure Zoom",
+          "mod": "Moderator: Dr. Sofia Valenzuela (Oncology Psychologist)",
+          "cta": "Reserve Spot (Free)"
+        },
+        "e2": {
+          "day": "SAT",
+          "num": "19",
+          "month": "OCT",
+          "tag": "For Caregivers & Partners",
+          "title": "Circle: 'Loving Care Without Losing Yourself'",
+          "time": "10:30 AM - 12:00 PM · Via Secure Zoom",
+          "mod": "Moderator: Andres Morales, LMFT (Family Therapist)",
+          "cta": "Reserve Spot (Free)"
+        },
+        "e3": {
+          "day": "WED",
+          "num": "23",
+          "month": "OCT",
+          "tag": "In Active Treatment",
+          "title": "Support Circle: 'Sharing Fatigue & Finding Joy'",
+          "time": "6:00 PM - 7:30 PM · Via Secure Zoom",
+          "mod": "Moderator: Carmen Rivas, MA (Survivor & Mentor)",
+          "cta": "Reserve Spot (Free)"
+        }
+      },
+      "reservedLabel": "✓ Spot Reserved",
+      "testimonial": {
+        "quote": "\"The day I was diagnosed, I felt like I was falling into a bottomless abyss. Finding Love Heals and joining their first virtual circle was the first time in weeks I could cry and tell my truth without having to put on a brave face for my kids. They saved my spirit.\"",
+        "name": "Lorena Morales G.",
+        "role": "3 years in remission",
+        "badge": "Community member"
+      }
+    },
+    "ctaBanner": {
+      "title": "Let us accompany you, step by step.",
+      "descPart1": "Receive our free ",
+      "descHighlight": "Digital Welcome & Emotional Support Kit",
+      "descPart2": " immediately, containing the first 5 essential tools for you or your loved one.",
+      "emailPlaceholder": "Enter your email address...",
+      "submitBtn": "Get Free Welcome Kit",
+      "successMsg": "We sent the kit with all our love! Please check your inbox.",
+      "privacyNote": "100% Free. We protect your privacy strictly and will never send spam.",
+      "needTalk": "Need to talk today?",
+      "phone": "1-800-240-4325",
+      "tollFree": "(Toll-Free Helpline)",
+      "crisisChat": "Active Crisis Support Chat"
+    }
+  }
+}
+

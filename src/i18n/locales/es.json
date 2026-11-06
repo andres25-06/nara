@@ -1,0 +1,440 @@
+{
+  "nav": {
+    "brandSubtitle": "Acompañamiento Integral",
+    "home": "Inicio",
+    "patient": {
+      "label": "Paciente",
+      "items": {
+        "journey": {
+          "title": "Mi Camino & Etapas",
+          "desc": "Diagnóstico, quimioterapia y recuperación"
+        },
+        "diary": {
+          "title": "Bitácora de Síntomas",
+          "desc": "Registro diario para el oncólogo"
+        },
+        "calm": {
+          "title": "Micro-Calma Sensorial",
+          "desc": "Audios de 3 a 7 min y respiración Piko-Piko"
+        },
+        "circles": {
+          "title": "Círculo Íntimo Semanal",
+          "desc": "Encuentros confidenciales por Zoom"
+        }
+      }
+    },
+    "caregivers": {
+      "label": "Cuidadores",
+      "items": {
+        "haven": {
+          "title": "Espacio Cuidadores",
+          "desc": "Guía práctica para familia y pareja"
+        },
+        "dictionary": {
+          "title": "Qué Decir y Qué Evitar",
+          "desc": "Frases que reconfortan sin ser cliché"
+        },
+        "children": {
+          "title": "Cómo Hablar con los Hijos",
+          "desc": "Guía por edades: niños, pre y adolescentes"
+        },
+        "selfcare": {
+          "title": "Autocuidado & Relevos",
+          "desc": "Test de sobrecarga y turnos de descanso"
+        },
+        "circles": {
+          "title": "Círculos para Familias",
+          "desc": "Desahogo seguro para cuidadores"
+        }
+      }
+    },
+    "resources": {
+      "label": "Recursos",
+      "items": {
+        "nutrition": {
+          "title": "Alimentación & Recetas",
+          "desc": "Caldo dorado, batidos y manejo de náuseas"
+        },
+        "library": {
+          "title": "Guías y Cuadernos PDF",
+          "desc": "Preguntas para el oncólogo y bitácoras"
+        },
+        "mobility": {
+          "title": "Movilidad & Videos",
+          "desc": "Yoga en silla y ejercicios post-cirugía"
+        },
+        "rights": {
+          "title": "Derechos y Licencias",
+          "desc": "Formatos laborales y banco de prótesis"
+        }
+      }
+    },
+    "community": {
+      "label": "Comunidad",
+      "items": {
+        "circles": {
+          "title": "Círculos de Apoyo (Zoom)",
+          "desc": "Reuniones virtuales semanales moderadas"
+        },
+        "videos": {
+          "title": "Catálogo de Videos",
+          "desc": "Talleres prácticos con especialistas"
+        },
+        "voice": {
+          "title": "NARA · Voz 24/7",
+          "desc": "Habla con tu acompañante interactivo"
+        }
+      }
+    },
+    "voiceBtn": "Voz con NARA",
+    "signIn": "Iniciar sesión",
+    "switchLangTitle": "Cambiar idioma"
+  },
+  "loginModal": {
+    "badge": "Comunidad Love Heals · NARA",
+    "title": "Bienvenida a tu espacio",
+    "desc": "Ingresa para guardar tus sesiones favoritas, recetas de nutrición clínica y próximos círculos comunitarios.",
+    "emailPlaceholder": "Tu correo electrónico",
+    "passwordPlaceholder": "Tu contraseña",
+    "submitBtn": "Iniciar sesión"
+  },
+  "voiceWidget": {
+    "statusLive": "NARA · Acompañamiento en Voz",
+    "statusListening": "Escuchando tu voz ahora...",
+    "statusSpeaking": "NARA te está hablando...",
+    "statusIdle": "NARA · Lista para escucharte",
+    "voiceActive": "Voz activa",
+    "voiceMuted": "Silenciado",
+    "historyBtn": "Historial",
+    "defaultCaption": "“Hola, soy NARA, tu compañera emocional. ¿Cómo te sientes hoy y en qué etapa te encuentras?”",
+    "demoLabel": "🎙️ Habla por micrófono o toca para probar voz en la demo:",
+    "chips": {
+      "chip1": {
+        "label": "\"Hoy me siento mal, tengo miedo\"",
+        "prompt": "Hola Nara, hoy me siento mal y tengo mucho miedo"
+      },
+      "chip2": {
+        "label": "\"Estoy en quimioterapia\"",
+        "prompt": "Estoy en quimioterapia y me siento muy agotada"
+      },
+      "chip3": {
+        "label": "\"Respiremos juntas\"",
+        "prompt": "Sí, hagamos una pausa de respiración juntas por favor"
+      }
+    },
+    "initialChatMsg": "Hola, soy NARA, tu compañera emocional. ¿Cómo te sientes en este momento y cómo puedo acompañarte?",
+    "inputPlaceholder": "Escribe o habla con NARA...",
+    "greetingPill": "🎙️ Conversa por voz con NARA sin tener que escribir",
+    "speakBtn": "Hablar",
+    "floatingTitle": "NARA · Voz 24/7",
+    "floatingSub": "Háblame o Escríbeme",
+    "spokenPrefix": "Tú",
+    "greetingSpeech": "Hola hermosa... soy Nara, tu amiga y tu refugio seguro. Aquí no tienes que fingir que todo está bien ni ser fuerte todo el tiempo. ¿Cómo te sientes hoy de verdad? Cuéntame, te escucho con todo el corazón.",
+    "replies": {
+      "chemoHard": "Ay querida, ven aquí, te abrazo muy fuerte. Siento mucho que hoy sea un día tan duro en la quimioterapia. No tienes que esforzarte ni fingir estar bien; solo respira suavecito conmigo. Tu única tarea hoy es descansar. ¿Quieres que hagamos juntas una pausa lenta de respiración de un minuto para aliviar tu cuerpo?",
+      "scared": "Hola hermosa, aquí estoy contigo... soy Nara, tu amiga. Te escucho y no te suelto la mano. Es completamente normal sentir miedo o ganas de llorar hoy; no tienes que cargar esto sola. Cuéntame: ¿en qué etapa te encuentras ahora mismo, recién diagnosticada o en tratamiento?",
+      "chemoTired": "Te sostengo la mano fuerte, amiga. Sé cuánto agota la quimio el cuerpo y el alma. Date permiso de descansar sin ninguna culpa hoy, e intenta tomar sorbitos pequeños de agua muy fría con menta o jengibre. Me quedo aquí hablándote bajito. ¿Hacemos un ejercicio suave de respiración juntas?",
+      "breathe": "Hagámoslo juntas, querida. Cierra suavemente tus ojos... Toma aire profundo por la nariz sintiendo calma en tu pecho... uno, dos, tres, cuatro... Sostén con ternura... y suelta despacio, liberando el peso de tus hombros. Lo estás haciendo maravilloso. Aquí estoy contigo.",
+      "diagnosis": "Sé que recibir un diagnóstico sacude todo tu mundo. Vamos un solo día a la vez, sin correr. Estoy aquí para explicarte cada paso con calidez y sin tecnicismos fríos.",
+      "family": "Acompañar a quien amas también requiere ternura contigo. A veces el mayor apoyo es simplemente sostener su mano en silencio cálido sin exigir que nadie sea fuerte.",
+      "default": "Te escucho con todo mi corazón, amiga. No tienes que escribir cuando te sientas cansada; solo háblame cuando quieras y caminaré a tu lado paso a paso. ¿Cómo se siente tu cuerpo en este momento?"
+    }
+  },
+  "footer": {
+    "subtitle": "Acompañamiento Integral",
+    "mission": "Un refugio seguro para transitar el cáncer de mama sin soledad. Contención emocional, médica y práctica para la paciente, su pareja y su familia.",
+    "endorsed": "Avalado por psicooncólogos y nutrición clínica",
+    "colPathways": {
+      "title": "Rutas de Acompañamiento",
+      "patientJourney": "Camino de la Paciente (Etapas)",
+      "symptomDiary": "Mi Bitácora de Síntomas",
+      "microCalm": "Micro-Calma y Respiración",
+      "caregiverHaven": "Espacio Cuidadores & Pareja",
+      "whatToSay": "Qué decir y qué evitar",
+      "talkChildren": "Cómo hablar con los hijos"
+    },
+    "colPillars": {
+      "title": "4 Pilares & Recursos",
+      "nutrition": "Alimentación y Recetas (Náuseas)",
+      "guides": "Guías y Cuadernos descargables (PDF)",
+      "mobility": "Talleres de Movilidad Suave y Yoga",
+      "rights": "Derechos Laborales y Licencias",
+      "prosthetics": "Directorio de Prótesis y Pelucas"
+    },
+    "colHelpline": {
+      "title": "Líneas de Ayuda 24/7",
+      "phone": "800 240 4325",
+      "phoneSub": "Línea gratuita nacional sin costo",
+      "chat": "WhatsApp de Contención",
+      "chatSub": "Orientación gentil por mensaje",
+      "circles": "Círculos de Escucha Semanal (Zoom)",
+      "circlesSub": "Sesiones grupales guiadas gratuitas",
+      "voiceCta": "Hablar con NARA Voz en vivo"
+    },
+    "copyright": "Love Heals · NARA Foundation © 2026. Diseñado con calidez, dignidad y cuidado.",
+    "privacy": "Privacidad y Confidencialidad",
+    "terms": "Términos de Uso",
+    "disclaimer": "Aviso Médico"
+  },
+  "home": {
+    "hero": {
+      "badge": "Avalado por psicooncólogos & nutrición clínica",
+      "titleLine1": "No caminas sola.",
+      "titleLine2": "Estamos contigo",
+      "titleLine3": "y con quienes amas.",
+      "description": "Acompañamiento integral, emocional y práctico para transitar el diagnóstico, el tratamiento y la recuperación del cáncer de mama junto a tu familia, pareja y amigos en un entorno cálido.",
+      "orderLabel": "EL ORDEN DE TU ACOMPAÑAMIENTO:",
+      "steps": {
+        "step1": "Tu Etapa Actual",
+        "step2": "Nutrición y Libros",
+        "step3": "Videos frente al Mar",
+        "step4": "Círculos en Vivo"
+      },
+      "trust": {
+        "stat1": "+2,500 Familias acompañadas",
+        "stat2": "100% Gratuito y confidencial",
+        "stat3": "Contención 24/7"
+      },
+      "glassCard": {
+        "badge": "✦ Selección de Camino Personalizado",
+        "title": "¿Desde qué lugar nos visitas hoy?",
+        "subtitle": "Elige tu perfil para llevarte a las herramientas, videos, alimentación y guías diseñadas para ti:",
+        "patient": {
+          "tag": "Camino Especializado",
+          "title": "Soy Paciente",
+          "desc": "Guías paso a paso desde el primer día, manejo sereno de emociones, nutrición y herramientas para cada consulta.",
+          "cta": "Mi recorrido",
+          "badge": "1,820 activas"
+        },
+        "caregiver": {
+          "tag": "Red de Cuidados",
+          "title": "Soy Familiar o Cuidador",
+          "desc": "Aprende a acompañar sin agotar, qué decir en momentos difíciles, dinámicas para los hijos y protocolos de autocuidado.",
+          "cta": "Guía familiar",
+          "badge": "Gratis"
+        }
+      }
+    },
+    "marquee": {
+      "w1": "Juntas",
+      "w2": "Descansa",
+      "w3": "Respira",
+      "w4": "Acompaña",
+      "w5": "Sana",
+      "w6": "Amor"
+    },
+    "journey": {
+      "badge": "Ruta De Acompañamiento",
+      "title": "¿Dónde te encuentras hoy?",
+      "subtitle": "Cada etapa tiene inquietudes y necesidades únicas. Selecciona tu momento para acceder a recomendaciones puntuales y compasivas.",
+      "tabs": {
+        "tab1": "Recién diagnosticada",
+        "tab2": "En quimio o radioterapia",
+        "tab3": "Cirugía y reconstrucción",
+        "tab4": "Vida en remisión"
+      },
+      "stage1": {
+        "pill": "Paso 1 · Respira, no estás sola",
+        "title": "Acabo de recibir el diagnóstico",
+        "desc": "El impacto inicial genera incertidumbre y sobrecarga de términos clínicos. Tu prioridad ahora no es tener todas las respuestas hoy, sino armar un cuaderno seguro de preguntas, pausar el miedo paralizante y permitirte sentir sin culpa.",
+        "card1Title": "10 Preguntas clave para el oncólogo",
+        "card1Desc": "Para llevar a tu segunda consulta médica.",
+        "card2Title": "Kit de calma emocional",
+        "card2Desc": "Ejercicios de conexión a tierra guiados en audio.",
+        "btnPrimary": "Descargar Guía de Primeros Días (PDF)",
+        "btnSecondary": "Escuchar cápsula con Psicooncóloga (7 min)",
+        "tipLabel": "Consejo del día",
+        "tipQuote": "\"Lleva a una persona de confianza a tus citas sólo para tomar notas por ti.\""
+      },
+      "stage2": {
+        "pill": "Paso 2 · Fortaleza día a día",
+        "title": "En quimioterapia o radioterapia",
+        "desc": "Herramientas concretas para disminuir efectos secundarios, proteger tu piel sensible, adaptar tus comidas a la alteración del gusto y mantener tu paz mental entre ciclos.",
+        "card1Title": "Nutrición para náusea y sabor metálico",
+        "card1Desc": "Calorías limpias, purés tibios e hidratación alcalina.",
+        "card2Title": "Cuidados dermatológicos oncológicos",
+        "card2Desc": "Protección contra radiodermitis e hidratación gentil.",
+        "btnPrimary": "Recetario de Confort Digestivo",
+        "btnSecondary": "Consultar con Nutrióloga Clínica",
+        "tipLabel": "Tip de alivio",
+        "tipQuote": "\"Utilizar cubiertos de madera o bambú disminuye la percepción metálica al comer.\""
+      },
+      "stage3": {
+        "pill": "Paso 3 · Sanar y Reconectar",
+        "title": "Cirugía, Mastectomía y Reconstrucción",
+        "desc": "Conoce ejercicios seguros de movilidad para prevenir el linfedema, cuidados postoperatorios de drenajes y acompañamiento emocional íntimo para reconectar con tu cuerpo.",
+        "card1Title": "Fisioterapia y prevención de linfedema",
+        "card1Desc": "Rutinas seguras de movilidad para brazos y tórax.",
+        "card2Title": "Imagen corporal y autocompasión",
+        "card2Desc": "Terapia narrativa para honrar tus cicatrices.",
+        "btnPrimary": "Ver Ejercicios de Movilidad Segura",
+        "btnSecondary": "Guía de Prendas Postquirúrgicas",
+        "tipLabel": "Dato clínico",
+        "tipQuote": "\"La rehabilitación temprana guiada previene hasta el 80% de complicaciones de movilidad superior.\""
+      },
+      "stage4": {
+        "pill": "Paso 4 · Un Renacer Suave",
+        "title": "Vida después del tratamiento y Remisión",
+        "desc": "Terminar el tratamiento no significa que termine el proceso emocional. Es normal sentir temor a la recaída o desorientación al volver a la rutina. Aquí abordamos el 'scanxiety' y el rediseño de prioridades vitales.",
+        "card1Title": "Manejo de 'Scanxiety' e incertidumbre",
+        "card1Desc": "Herramientas psicológicas previas a tus controles.",
+        "card2Title": "Hábitos de estilo de vida antiinflamatorio",
+        "card2Desc": "Protección cardiovascular, salud ósea y descanso reparador.",
+        "btnPrimary": "Unirme al Círculo de Sobrevivientes",
+        "btnSecondary": "Manual de Reintegración Vital",
+        "tipLabel": "Comunidad",
+        "tipQuote": "\"La remisión también es una invitación a aprender a vivir sin prisa.\""
+      }
+    },
+    "pillars": {
+      "badge": "Enfoque Integral 360°",
+      "title": "Los 4 Pilares del Cuidado Love Heals",
+      "subtitle": "Acompañamos mucho más que tu expediente médico: cuidamos tu plato, tus emociones, tu cuerpo y a los seres queridos que te sostienen en casa.",
+      "viewAll": "Ver Centro de Recursos Completo →",
+      "p1": {
+        "tag": "Nutrición Clínica",
+        "title": "Nutrición & Confort Digestivo",
+        "desc": "Recetas suaves para cuando predominan las náuseas, la fatiga o la inapetencia. Protocolos de hidratación y menús antiinflamatorios adaptados a cada ciclo.",
+        "b1": "Caldos nutritivos de huesos y vegetales",
+        "b2": "Bebidas de electrolitos naturales",
+        "b3": "Guía para llagas bucales y mucositis",
+        "cta": "Explorar Guías"
+      },
+      "p2": {
+        "tag": "Lecturas & Cuadernos",
+        "title": "Biblioteca & Cuadernos",
+        "desc": "Memorias recomendadas de sobrevivientes, el reconocido 'Diario de Emociones' y la guía imprimible de 'Preguntas Esenciales para tu Oncólogo'.",
+        "b1": "Bitácora diaria de síntomas",
+        "b2": "Cuaderno 'Expresar para Sanar'",
+        "b3": "Selección de memorias de vida",
+        "cta": "Descargar Gratis"
+      },
+      "p3": {
+        "tag": "Videos Guiados",
+        "title": "Talleres en Video & Movilidad Suave",
+        "desc": "Cápsulas de yoga oncológico restaurativo, respiración diafragmática para la ansiedad de las salas de espera y testimonios íntimos en video.",
+        "b1": "Yoga en silla y postoperatorio",
+        "b2": "Técnica 4-7-8 para conciliar sueño",
+        "b3": "Voces de mujeres en remisión",
+        "cta": "Ver Talleres"
+      },
+      "p4": {
+        "tag": "Para Cuidadores",
+        "title": "Familia, Pareja e Hijos",
+        "desc": "Guía práctica: '¿Qué decir y qué evitar decir?', herramientas para no desgastar al cuidador principal y cómo hablar con los hijos con ternura y verdad.",
+        "b1": "Frases que sanan vs. que invalidan",
+        "b2": "Cuentos explicativos para niños",
+        "b3": "Relevos saludables de apoyo",
+        "cta": "Guía para Familias"
+      }
+    },
+    "masterclasses": {
+      "badge": "Masterclasses & Video-Cápsulas de Sanación",
+      "title": "Sanar frente al Mar: Sesiones Guiadas",
+      "subtitle": "Cápsulas audiovisuales, psicooncología clínica y prácticas suaves grabadas en la serenidad natural frente al mar. Para ver a tu propio ritmo cuando necesites calma y orientación.",
+      "filters": {
+        "all": "Todos los Videos",
+        "psycho": "Psicooncología",
+        "mobility": "Movilidad y Yoga",
+        "family": "Para la Familia",
+        "meditation": "Meditaciones"
+      },
+      "featured": {
+        "badge": "Masterclass Destacada",
+        "duration": "24 min",
+        "audioSub": "Audio en Español & Subtítulos",
+        "tag1": "Psicooncología Clínica",
+        "tag2": "Gestión del Miedo",
+        "title": "Healing with Aloha: Conversaciones Compasivas",
+        "speaker": "Con la Dra. Alana Ka'uhane · Especialista en Psicooncología",
+        "desc": "Una sesión íntima y reconfortante sobre cómo abrazar la vulnerabilidad tras recibir una noticia difícil, cómo modular la rumiación nocturna y cómo comunicarse con serenidad con tu círculo de apoyo familiar.",
+        "item1": "Protocolo de respiración Piko-Piko",
+        "item2": "Guía descargable con reflexiones y cuaderno clínico",
+        "playBtn": "Reproducir Masterclass",
+        "downloadBtn": "Descargar Cuaderno (PDF)"
+      },
+      "cards": {
+        "c1": {
+          "category": "Movilidad & Linfedema",
+          "title": "Yoga Oncológico Suave frente al Mar",
+          "desc": "Movimientos adaptados para cuello, hombros y caja torácica con brisa marina guiada.",
+          "meta": "Nivel Suave Adaptado",
+          "cta": "Ver video →"
+        },
+        "c2": {
+          "category": "Meditación Guiada",
+          "title": "Meditación de Olas y Calma Interior",
+          "desc": "Sonido real de olas del Pacífico para desactivar el estrés antes de consultas médicas.",
+          "meta": "Audio Binaural",
+          "cta": "Ver video →"
+        },
+        "c3": {
+          "category": "Nutrición Oncológica",
+          "title": "Nutrición Celular y Batidos Calmantes",
+          "desc": "Preparación en vivo de batidos frescos y caldos reconfortantes para días de quimioterapia.",
+          "meta": "Recetas Incluidas",
+          "cta": "Ver video →"
+        }
+      }
+    },
+    "circles": {
+      "badge": "Comunidad & Escucha",
+      "title": "Círculos de Apoyo Virtuales y Seguros",
+      "subtitle": "Espacios en grupos reducidos de máximo 10 personas, moderados por psicooncólogas especializadas. Nadie te juzga, todas te comprenden.",
+      "events": {
+        "e1": {
+          "day": "JUE",
+          "num": "17",
+          "month": "OCT",
+          "tag": "Recién diagnosticadas",
+          "title": "Círculo: 'Gestionar el miedo y abrazar la calma'",
+          "time": "19:00 - 20:30 hrs · Vía Zoom Protegido",
+          "mod": "Modera: Dra. Sofía Valenzuela (Psicooncóloga)",
+          "cta": "Reservar Lugar (Gratis)"
+        },
+        "e2": {
+          "day": "SÁB",
+          "num": "19",
+          "month": "OCT",
+          "tag": "Para Cuidadores y Parejas",
+          "title": "Círculo: 'Cuidar con amor sin olvidarte de ti'",
+          "time": "10:30 - 12:00 hrs · Vía Zoom Protegido",
+          "mod": "Modera: Lic. Andrés Morales (Terapeuta Familiar)",
+          "cta": "Reservar Lugar (Gratis)"
+        },
+        "e3": {
+          "day": "MIÉ",
+          "num": "23",
+          "month": "OCT",
+          "tag": "En Tratamiento Activo",
+          "title": "Círculo de Aliento: 'Compartir la fatiga y hallar risa'",
+          "time": "18:00 - 19:30 hrs · Vía Zoom Protegido",
+          "mod": "Modera: Mtra. Carmen Rivas (Sobreviviente & Guía)",
+          "cta": "Reservar Lugar (Gratis)"
+        }
+      },
+      "reservedLabel": "✓ Lugar Reservado",
+      "testimonial": {
+        "quote": "\"El día que me diagnosticaron sentí que caía en un pozo sin fondo. Encontrar Love Heals y entrar a su primer círculo virtual fue la primera vez en semanas que pude llorar y decir la verdad sin tener que poner cara de valiente para mis hijos. Me salvaron el alma.\"",
+        "name": "Lorena Morales G.",
+        "role": "3 años en remisión",
+        "badge": "Participante de la comunidad"
+      }
+    },
+    "ctaBanner": {
+      "title": "Permítenos acompañarte paso a paso.",
+      "descPart1": "Recibe de forma inmediata y gratuita nuestro ",
+      "descHighlight": "Kit Digital de Bienvenida y Apoyo Emocional",
+      "descPart2": ", con las primeras 5 herramientas clave para ti o tu ser querido.",
+      "emailPlaceholder": "Ingresa tu correo electrónico...",
+      "submitBtn": "Recibir acompañamiento",
+      "successMsg": "¡Te hemos enviado el kit con todo nuestro cariño! Revisa tu bandeja.",
+      "privacyNote": "Sin costo alguno. Cuidamos celosamente tu privacidad y jamás enviaremos spam.",
+      "needTalk": "¿Necesitas hablar hoy mismo?",
+      "phone": "800 240 4325",
+      "tollFree": "(Línea sin costo)",
+      "crisisChat": "WhatsApp de Contención Activo"
+    }
+  }
+}
+
