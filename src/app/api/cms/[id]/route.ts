@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { ensureDatabaseInitialized, getPool } from '@/lib/db';
+import { autoTranslateCmsFields } from '@/lib/translator';
 
 export async function PUT(
   req: NextRequest,
@@ -29,18 +30,39 @@ export async function PUT(
     const page = body.page ?? prev.page;
     const section = body.section ?? prev.section;
     const content_type = body.content_type ?? prev.content_type;
-    const title_en = body.title_en ?? prev.title_en;
-    const title_es = body.title_es ?? prev.title_es;
-    const subtitle_en = body.subtitle_en ?? prev.subtitle_en;
-    const subtitle_es = body.subtitle_es ?? prev.subtitle_es;
-    const description_en = body.description_en ?? prev.description_en;
-    const description_es = body.description_es ?? prev.description_es;
+    const title_en = body.title_en ?? body.title ?? prev.title_en;
+    const subtitle_en = body.subtitle_en ?? body.subtitle ?? prev.subtitle_en;
+    const description_en = body.description_en ?? body.description ?? prev.description_en;
+    const badge_en = body.badge_en ?? body.badge ?? prev.badge_en;
+    const cta_text_en = body.cta_text_en ?? body.cta_text ?? prev.cta_text_en;
+
+    // Automatic translation if English text changed and Spanish is not provided explicitly
+    let title_es = body.title_es ?? prev.title_es;
+    let subtitle_es = body.subtitle_es ?? prev.subtitle_es;
+    let description_es = body.description_es ?? prev.description_es;
+    let badge_es = body.badge_es ?? prev.badge_es;
+    let cta_text_es = body.cta_text_es ?? prev.cta_text_es;
+
+    const titleChanged = title_en !== prev.title_en;
+    const descChanged = description_en !== prev.description_en;
+
+    if (!body.title_es && titleChanged) {
+      const translated = await autoTranslateCmsFields({
+        title_en,
+        subtitle_en,
+        description_en,
+        badge_en,
+        cta_text_en,
+      });
+      title_es = translated.title_es || title_en;
+      if (subtitle_en) subtitle_es = translated.subtitle_es || subtitle_en;
+      if (description_en && descChanged) description_es = translated.description_es || description_en;
+      if (badge_en) badge_es = translated.badge_es || badge_en;
+      if (cta_text_en) cta_text_es = translated.cta_text_es || cta_text_en;
+    }
+
     const media_url = body.media_url ?? prev.media_url;
     const media_type = body.media_type ?? prev.media_type;
-    const badge_en = body.badge_en ?? prev.badge_en;
-    const badge_es = body.badge_es ?? prev.badge_es;
-    const cta_text_en = body.cta_text_en ?? prev.cta_text_en;
-    const cta_text_es = body.cta_text_es ?? prev.cta_text_es;
     const cta_link = body.cta_link ?? prev.cta_link;
     const meta_json = body.meta_json ?? prev.meta_json ?? {};
     const display_order =

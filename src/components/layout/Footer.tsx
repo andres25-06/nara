@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
 import { useNara } from "@/context/NaraContext";
-import type { CmsItem } from "@/app/admin/page";
+import type { CmsItem } from "@/types/cms";
 
 export function Footer() {
   const { t, i18n } = useTranslation();
@@ -52,8 +52,19 @@ export function Footer() {
     (helplineBlock && (isEs ? helplineBlock.cta_text_es : helplineBlock.cta_text_en)) ||
     t("footer.colHelpline.voiceCta");
 
+  const helplinePhoneSub =
+    (helplineBlock?.meta_json?.phone_sub_en as string) || t("footer.colHelpline.phoneSub");
+  const helplineEmailSub =
+    (helplineBlock?.meta_json?.email_sub_en as string) || t("footer.colHelpline.chatSub");
+  const helplineCirclesTitle =
+    (helplineBlock?.meta_json?.circles_title_en as string) || t("footer.colHelpline.circles");
+  const helplineCirclesSub =
+    (helplineBlock?.meta_json?.circles_sub_en as string) || t("footer.colHelpline.circlesSub");
+
   const copyrightText =
     (legalBlock && (isEs ? legalBlock.title_es : legalBlock.title_en)) || t("footer.copyright");
+  const legalSubtitle =
+    (legalBlock && (isEs ? legalBlock.subtitle_es : legalBlock.subtitle_en)) || "";
 
   return (
     <footer className="w-full bg-[#F3EFEA] border-t border-espresso/10 text-espresso shadow-[0_-4px_24px_rgba(45,49,66,0.03)]">
@@ -223,7 +234,7 @@ export function Footer() {
                 </span>
                 <div>
                   <span className="font-bold text-espresso block">{helplinePhone}</span>
-                  <span className="text-xs text-espresso/60">{t("footer.colHelpline.phoneSub")}</span>
+                  <span className="text-xs text-espresso/60">{helplinePhoneSub}</span>
                 </div>
               </li>
               <li className="flex items-start gap-2.5">
@@ -235,7 +246,7 @@ export function Footer() {
                 </span>
                 <div>
                   <span className="font-bold text-espresso block">{helplineDesc}</span>
-                  <span className="text-xs text-espresso/60">{t("footer.colHelpline.chatSub")}</span>
+                  <span className="text-xs text-espresso/60">{helplineEmailSub}</span>
                 </div>
               </li>
               <li className="flex items-start gap-2.5">
@@ -247,10 +258,10 @@ export function Footer() {
                 </span>
                 <div>
                   <span className="font-bold text-espresso block">
-                    {t("footer.colHelpline.circles")}
+                    {helplineCirclesTitle}
                   </span>
                   <span className="text-xs text-espresso/60">
-                    {t("footer.colHelpline.circlesSub")}
+                    {helplineCirclesSub}
                   </span>
                 </div>
               </li>
@@ -270,11 +281,16 @@ export function Footer() {
 
         {/* Barra inferior de copyright y términos (Sincronizada con PostgreSQL section='footer_legal') */}
         <div className="pt-6 border-t border-espresso/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-espresso/60">
-          <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined notranslate text-primary text-[16px]" translate="no">
-              &#xea70;
-            </span>
-            <span>{copyrightText}</span>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-3">
+            <div className="flex items-center gap-2">
+              <span className="material-symbols-outlined notranslate text-primary text-[16px]" translate="no">
+                &#xea70;
+              </span>
+              <span>{copyrightText}</span>
+            </div>
+            {legalSubtitle && (
+              <span className="text-[11px] text-espresso/50">· {legalSubtitle}</span>
+            )}
           </div>
           <div className="flex items-center gap-5">
             <a className="hover:text-espresso transition-colors" href="#privacy">

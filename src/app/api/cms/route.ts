@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { ensureDatabaseInitialized, getPool } from '@/lib/db';
+import { autoTranslateCmsFields } from '@/lib/translator';
 
 export async function GET(req: NextRequest) {
   try {
@@ -95,30 +96,47 @@ export async function POST(req: NextRequest) {
     const page = body.page || 'home';
     const section = body.section || 'videos';
     const content_type = body.content_type || 'card';
-    const title_es = (body.title_es || body.title_en || '').trim();
-    const title_en = (body.title_en || body.title_es || '').trim();
+    const title_en = (body.title_en || body.title || body.title_es || '').trim();
 
-    if (!title_es && !title_en) {
+    if (!title_en) {
       return NextResponse.json(
-        { ok: false, error: 'El título del contenido es obligatorio.' },
+        { ok: false, error: 'The content title is required.' },
         { status: 400 }
       );
     }
 
-    const subtitle_en = body.subtitle_en || body.subtitle_es || '';
-    const subtitle_es = body.subtitle_es || body.subtitle_en || '';
-    const description_en = body.description_en || body.description_es || '';
-    const description_es = body.description_es || body.description_en || '';
+    const subtitle_en = body.subtitle_en || body.subtitle || '';
+    const description_en = body.description_en || body.description || '';
+    const badge_en = body.badge_en || body.badge || '';
+    const cta_text_en = body.cta_text_en || body.cta_text || '';
+
+    // Automatic free translation to Spanish if not explicitly provided
+    let title_es = body.title_es;
+    let subtitle_es = body.subtitle_es;
+    let description_es = body.description_es;
+    let badge_es = body.badge_es;
+    let cta_text_es = body.cta_text_es;
+
+    if (!title_es || !description_es) {
+      const translated = await autoTranslateCmsFields({
+        title_en,
+        subtitle_en,
+        description_en,
+        badge_en,
+        cta_text_en,
+      });
+      title_es = title_es || translated.title_es || title_en;
+      subtitle_es = subtitle_es || translated.subtitle_es || subtitle_en;
+      description_es = description_es || translated.description_es || description_en;
+      badge_es = badge_es || translated.badge_es || badge_en;
+      cta_text_es = cta_text_es || translated.cta_text_es || cta_text_en;
+    }
+
     const media_url = body.media_url || '';
     const media_type = body.media_type || (media_url ? 'image' : 'none');
-    const badge_en = body.badge_en || body.badge_es || '';
-    const badge_es = body.badge_es || body.badge_en || '';
-    const cta_text_en = body.cta_text_en || body.cta_text_es || '';
-    const cta_text_es = body.cta_text_es || body.cta_text_en || '';
     const cta_link = body.cta_link || '';
     const meta_json = body.meta_json || {};
     const display_order = Number(body.display_order || 10);
-    // Por requerimiento del usuario: cada registro nuevo sale como 'active' por defecto
     const status = body.status === 'inactive' ? 'inactive' : 'active';
     const changed_by = body.changed_by || 'Admin NARA';
     const item_key = body.item_key || `custom_${section}_${Date.now()}`;

@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
 import { useNara } from "@/context/NaraContext";
-import type { CmsItem } from "@/app/admin/page";
+import type { CmsItem } from "@/types/cms";
 
 type JourneyTabId = "etapa-1" | "etapa-2" | "etapa-3" | "etapa-4";
 type VideoFilterId = "all" | "psycho" | "mobility" | "family" | "meditation";
@@ -44,6 +44,20 @@ export default function HomePage() {
   const journeyStagesCms = cmsItems.filter((i) => i.section === "journey");
   const pillarsCms = cmsItems.filter((i) => i.section === "pillars");
   const ctaBannerCms = cmsItems.find((i) => i.section === "cta_banner");
+
+  // Etapas y pilares editables desde el panel admin (posición = display_order 1..4)
+  const stageCms = (n: number) => journeyStagesCms.find((i) => i.display_order === n);
+  const pillarCms = (n: number) => pillarsCms.find((i) => i.display_order === n);
+  /** Texto en inglés desde la BD si existe; si no, el texto de traducción por defecto. */
+  const cmsEn = (item: CmsItem | undefined, field: keyof CmsItem, fallback: string) => {
+    const v = item?.[field];
+    return !isEs && typeof v === "string" && v.trim() ? v : fallback;
+  };
+  /** Valores sin idioma (imágenes, enlaces). */
+  const cmsRaw = (item: CmsItem | undefined, field: keyof CmsItem, fallback: string) => {
+    const v = item?.[field];
+    return typeof v === "string" && v.trim() ? v : fallback;
+  };
 
   const openVideoModal = (url: string, title: string) => {
     let embedUrl = url || "https://www.youtube.com/embed/inpok4MKVLM";
@@ -169,11 +183,15 @@ export default function HomePage() {
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-[58px] leading-[1.05] tracking-tight text-espresso font-extrabold">
-                <span className="block">{t("home.hero.titleLine1")}</span>
-                <span className="block font-serif italic font-normal text-rose-brand my-1">
-                  {t("home.hero.titleLine2")}
+                <span className="block">
+                  {(!isEs && (heroCms?.meta_json?.title_line1 as string)) || t("home.hero.titleLine1")}
                 </span>
-                <span className="block">{t("home.hero.titleLine3")}</span>
+                <span className="block font-serif italic font-normal text-rose-brand my-1">
+                  {(!isEs && (heroCms?.meta_json?.title_line2 as string)) || t("home.hero.titleLine2")}
+                </span>
+                <span className="block">
+                  {(!isEs && (heroCms?.meta_json?.title_line3 as string)) || t("home.hero.titleLine3")}
+                </span>
               </h1>
 
               <p className="text-sm sm:text-base text-espresso/80 max-w-xl leading-relaxed">
@@ -410,25 +428,25 @@ export default function HomePage() {
                   {
                     id: "etapa-1" as JourneyTabId,
                     icon: "\uf109",
-                    label: t("home.journey.tabs.tab1"),
+                    label: cmsEn(stageCms(1), "subtitle_en", t("home.journey.tabs.tab1")),
                     activeClass: "bg-gradient-to-r from-[#D45D74] to-[#C44A62] text-white shadow-md shadow-rose-900/20",
                   },
                   {
                     id: "etapa-2" as JourneyTabId,
                     icon: "\ue798",
-                    label: t("home.journey.tabs.tab2"),
+                    label: cmsEn(stageCms(2), "subtitle_en", t("home.journey.tabs.tab2")),
                     activeClass: "bg-gradient-to-r from-[#3D7A62] to-[#2B614D] text-white shadow-md shadow-emerald-900/20",
                   },
                   {
                     id: "etapa-3" as JourneyTabId,
                     icon: "\ue3f3",
-                    label: t("home.journey.tabs.tab3"),
+                    label: cmsEn(stageCms(3), "subtitle_en", t("home.journey.tabs.tab3")),
                     activeClass: "bg-gradient-to-r from-[#C26748] to-[#A85135] text-white shadow-md shadow-orange-900/20",
                   },
                   {
                     id: "etapa-4" as JourneyTabId,
                     icon: "\ue430",
-                    label: t("home.journey.tabs.tab4"),
+                    label: cmsEn(stageCms(4), "subtitle_en", t("home.journey.tabs.tab4")),
                     activeClass: "bg-gradient-to-r from-[#C9861E] to-[#AA6C12] text-white shadow-md shadow-amber-900/20",
                   },
                 ].map((tab) => (
@@ -460,13 +478,13 @@ export default function HomePage() {
                         <span className="material-symbols-outlined notranslate text-[14px]" translate="no">
                           &#xea4a;
                         </span>
-                        {t("home.journey.stage1.pill")}
+                        {cmsEn(stageCms(1), "badge_en", t("home.journey.stage1.pill"))}
                       </span>
                       <h3 className="font-headline-md text-headline-md text-on-surface font-serif">
-                        {t("home.journey.stage1.title")}
+                        {cmsEn(stageCms(1), "title_en", t("home.journey.stage1.title"))}
                       </h3>
                       <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                        {t("home.journey.stage1.desc")}
+                        {cmsEn(stageCms(1), "description_en", t("home.journey.stage1.desc"))}
                       </p>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-space-sm pt-space-xs">
                         <div className="bg-surface-container-low p-space-sm rounded-xl flex items-start gap-space-xs">
@@ -504,13 +522,13 @@ export default function HomePage() {
                       </div>
                       <div className="pt-space-sm flex flex-wrap items-center gap-space-sm">
                         <Link
-                          href="/pilares#pilar-biblioteca"
+                          href={cmsRaw(stageCms(1), "cta_link", "/pilares#pilar-biblioteca")}
                           className="bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md px-space-lg py-2.5 rounded-full transition-all flex items-center gap-1.5 shadow-sm"
                         >
                           <span className="material-symbols-outlined notranslate text-[18px]" translate="no">
                             &#xf090;
                           </span>
-                          {t("home.journey.stage1.btnPrimary")}
+                          {cmsEn(stageCms(1), "cta_text_en", t("home.journey.stage1.btnPrimary"))}
                         </Link>
                         <Link
                           href="/paciente#micro-calma"
@@ -525,7 +543,7 @@ export default function HomePage() {
                         <img
                           className="w-full h-full object-cover"
                           alt="Compassionate counseling"
-                          src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpeCMwSIPvOJs1URMTqmZ80oNH-ruK7XAO3alK0VtoSlBVEuWN-hv0LADlz_l6baeEoz9ZwAjajMZc3pBkQHhViXt9GJ6xn8tZeaH0r8AMOoymtiG1_3UuvbAfhj9kIYVCcwtcus1tr9rcvc7ZptCK7h3Krb88kL1496gb0eaSZI2ffbmEgPixPDs4qmWLwKSfzaItiwsh4mbLgiPnAcJ999JxKsGiKYZZbdkB59c"
+                          src={cmsRaw(stageCms(1), "media_url", "https://lh3.googleusercontent.com/aida-public/AB6AXuCpeCMwSIPvOJs1URMTqmZ80oNH-ruK7XAO3alK0VtoSlBVEuWN-hv0LADlz_l6baeEoz9ZwAjajMZc3pBkQHhViXt9GJ6xn8tZeaH0r8AMOoymtiG1_3UuvbAfhj9kIYVCcwtcus1tr9rcvc7ZptCK7h3Krb88kL1496gb0eaSZI2ffbmEgPixPDs4qmWLwKSfzaItiwsh4mbLgiPnAcJ999JxKsGiKYZZbdkB59c")}
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-surface-variant/70 to-transparent"></div>
                         <div className="absolute bottom-4 left-4 right-4 bg-surface-container-lowest/90 backdrop-blur-sm p-3 rounded-lg">
@@ -549,13 +567,13 @@ export default function HomePage() {
                         <span className="material-symbols-outlined notranslate text-[14px]" translate="no">
                           &#xea4b;
                         </span>
-                        {t("home.journey.stage2.pill")}
+                        {cmsEn(stageCms(2), "badge_en", t("home.journey.stage2.pill"))}
                       </span>
                       <h3 className="font-headline-md text-headline-md text-on-surface font-serif">
-                        {t("home.journey.stage2.title")}
+                        {cmsEn(stageCms(2), "title_en", t("home.journey.stage2.title"))}
                       </h3>
                       <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                        {t("home.journey.stage2.desc")}
+                        {cmsEn(stageCms(2), "description_en", t("home.journey.stage2.desc"))}
                       </p>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-space-sm pt-space-xs">
                         <div className="bg-surface-container-low p-space-sm rounded-xl flex items-start gap-space-xs">
@@ -593,13 +611,13 @@ export default function HomePage() {
                       </div>
                       <div className="pt-space-sm flex flex-wrap items-center gap-space-sm">
                         <Link
-                          href="/pilares#pilar-nutricion"
+                          href={cmsRaw(stageCms(2), "cta_link", "/pilares#pilar-nutricion")}
                           className="bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md px-space-lg py-2.5 rounded-full transition-all flex items-center gap-1.5 shadow-sm"
                         >
                           <span className="material-symbols-outlined notranslate text-[18px]" translate="no">
                             &#xe561;
                           </span>
-                          {t("home.journey.stage2.btnPrimary")}
+                          {cmsEn(stageCms(2), "cta_text_en", t("home.journey.stage2.btnPrimary"))}
                         </Link>
                         <Link
                           href="/pilares#pilar-nutricion"
@@ -614,7 +632,7 @@ export default function HomePage() {
                         <img
                           className="w-full h-full object-cover"
                           alt="Infusion and comfort"
-                          src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8o4iagpJ028QF0rCMwYzHnZ32OvOhbcGRfkfHp8gZPzbvKbyq-owVefc02AsfoXETG6rbGp59BHF2hd_OF29PBhBvX9aYw0eSTOCzEK_aaTfoUWdMeMBMi7YLsCtPKXJO0NK9DhpQ9UCiv4vTOouJX0GZgn6724OCEsWtn3k0I7RR-A7uIq2TcPq4ovehH0UTBlSgXXoGYFr1ABuJAwlT6z1wGeh4QMuE63EbCes"
+                          src={cmsRaw(stageCms(2), "media_url", "https://lh3.googleusercontent.com/aida-public/AB6AXuC8o4iagpJ028QF0rCMwYzHnZ32OvOhbcGRfkfHp8gZPzbvKbyq-owVefc02AsfoXETG6rbGp59BHF2hd_OF29PBhBvX9aYw0eSTOCzEK_aaTfoUWdMeMBMi7YLsCtPKXJO0NK9DhpQ9UCiv4vTOouJX0GZgn6724OCEsWtn3k0I7RR-A7uIq2TcPq4ovehH0UTBlSgXXoGYFr1ABuJAwlT6z1wGeh4QMuE63EbCes")}
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-surface-variant/70 to-transparent"></div>
                         <div className="absolute bottom-4 left-4 right-4 bg-surface-container-lowest/90 backdrop-blur-sm p-3 rounded-lg">
@@ -638,13 +656,13 @@ export default function HomePage() {
                         <span className="material-symbols-outlined notranslate text-[14px]" translate="no">
                           &#xe92c;
                         </span>
-                        {t("home.journey.stage3.pill")}
+                        {cmsEn(stageCms(3), "badge_en", t("home.journey.stage3.pill"))}
                       </span>
                       <h3 className="font-headline-md text-headline-md text-on-surface font-serif">
-                        {t("home.journey.stage3.title")}
+                        {cmsEn(stageCms(3), "title_en", t("home.journey.stage3.title"))}
                       </h3>
                       <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                        {t("home.journey.stage3.desc")}
+                        {cmsEn(stageCms(3), "description_en", t("home.journey.stage3.desc"))}
                       </p>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-space-sm pt-space-xs">
                         <div className="bg-surface-container-low p-space-sm rounded-xl flex items-start gap-space-xs">
@@ -682,13 +700,13 @@ export default function HomePage() {
                       </div>
                       <div className="pt-space-sm flex flex-wrap items-center gap-space-sm">
                         <Link
-                          href="/pilares#pilar-movilidad"
+                          href={cmsRaw(stageCms(3), "cta_link", "/pilares#pilar-movilidad")}
                           className="bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md px-space-lg py-2.5 rounded-full transition-all flex items-center gap-1.5 shadow-sm"
                         >
                           <span className="material-symbols-outlined notranslate text-[18px]" translate="no">
                             &#xe037;
                           </span>
-                          {t("home.journey.stage3.btnPrimary")}
+                          {cmsEn(stageCms(3), "cta_text_en", t("home.journey.stage3.btnPrimary"))}
                         </Link>
                         <Link
                           href="/pilares#pilar-derechos"
@@ -703,7 +721,7 @@ export default function HomePage() {
                         <img
                           className="w-full h-full object-cover"
                           alt="Gentle mobility"
-                          src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWT7byJL05kJZUsHnDmAqk9hC_YPD9rquQtjaedeaPvffUMCO9tbKk9xnwsWbPEmem1WLXOt6hXvPTeW1ziTPXoHz2Rae7hL83cnYZ8jpCBv2PZchlFfvD8iqJVryNtSAhgP3T0yKTSRs8jFY6mRj1DpuNNrwuedIQw030CE60QDEGeyubLVdnYP8xF2U6OEMbcriuPnQTfj6EJ6mYI8yr-bglmb7sJsfjQiwQ_Bw"
+                          src={cmsRaw(stageCms(3), "media_url", "https://lh3.googleusercontent.com/aida-public/AB6AXuBWT7byJL05kJZUsHnDmAqk9hC_YPD9rquQtjaedeaPvffUMCO9tbKk9xnwsWbPEmem1WLXOt6hXvPTeW1ziTPXoHz2Rae7hL83cnYZ8jpCBv2PZchlFfvD8iqJVryNtSAhgP3T0yKTSRs8jFY6mRj1DpuNNrwuedIQw030CE60QDEGeyubLVdnYP8xF2U6OEMbcriuPnQTfj6EJ6mYI8yr-bglmb7sJsfjQiwQ_Bw")}
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-surface-variant/70 to-transparent"></div>
                         <div className="absolute bottom-4 left-4 right-4 bg-surface-container-lowest/90 backdrop-blur-sm p-3 rounded-lg">
@@ -727,13 +745,13 @@ export default function HomePage() {
                         <span className="material-symbols-outlined notranslate text-[14px]" translate="no">
                           &#xe743;
                         </span>
-                        {t("home.journey.stage4.pill")}
+                        {cmsEn(stageCms(4), "badge_en", t("home.journey.stage4.pill"))}
                       </span>
                       <h3 className="font-headline-md text-headline-md text-on-surface font-serif">
-                        {t("home.journey.stage4.title")}
+                        {cmsEn(stageCms(4), "title_en", t("home.journey.stage4.title"))}
                       </h3>
                       <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                        {t("home.journey.stage4.desc")}
+                        {cmsEn(stageCms(4), "description_en", t("home.journey.stage4.desc"))}
                       </p>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-space-sm pt-space-xs">
                         <div className="bg-surface-container-low p-space-sm rounded-xl flex items-start gap-space-xs">
@@ -771,13 +789,13 @@ export default function HomePage() {
                       </div>
                       <div className="pt-space-sm flex flex-wrap items-center gap-space-sm">
                         <a
-                          href="#circulos"
+                          href={cmsRaw(stageCms(4), "cta_link", "#circulos")}
                           className="bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md px-space-lg py-2.5 rounded-full transition-all flex items-center gap-1.5 shadow-sm"
                         >
                           <span className="material-symbols-outlined notranslate text-[18px]" translate="no">
                             &#xe7ef;
                           </span>
-                          {t("home.journey.stage4.btnPrimary")}
+                          {cmsEn(stageCms(4), "cta_text_en", t("home.journey.stage4.btnPrimary"))}
                         </a>
                         <Link
                           href="/pilares#pilar-biblioteca"
@@ -792,7 +810,7 @@ export default function HomePage() {
                         <img
                           className="w-full h-full object-cover"
                           alt="Woman in remission"
-                          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfLLVgFnfv2Tpd9xdMeDFNh2tKX2QtK0xtluQjzcOiyZCU2rAwge8n1STvWCB5de7YD7zbQqfIx3DkylUFtebqhNRarXqDVXfQmz0rBFt1kXKPk1TbotP4SkpmcboYkgmoplqk9gRGLxPLrmZP9qfX7uK4VkANQdtmCHaPHxlYUzwzOpxL_qcjxEozF_YFkpimGhMktNKE8StjRy4W8ch1ISsmeAazpEdqkzPfQ8g"
+                          src={cmsRaw(stageCms(4), "media_url", "https://lh3.googleusercontent.com/aida-public/AB6AXuDfLLVgFnfv2Tpd9xdMeDFNh2tKX2QtK0xtluQjzcOiyZCU2rAwge8n1STvWCB5de7YD7zbQqfIx3DkylUFtebqhNRarXqDVXfQmz0rBFt1kXKPk1TbotP4SkpmcboYkgmoplqk9gRGLxPLrmZP9qfX7uK4VkANQdtmCHaPHxlYUzwzOpxL_qcjxEozF_YFkpimGhMktNKE8StjRy4W8ch1ISsmeAazpEdqkzPfQ8g")}
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-surface-variant/70 to-transparent"></div>
                         <div className="absolute bottom-4 left-4 right-4 bg-surface-container-lowest/90 backdrop-blur-sm p-3 rounded-lg">
@@ -849,7 +867,7 @@ export default function HomePage() {
                   <div>
                     <div className="relative h-44 w-full overflow-hidden">
                       <img
-                        src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=800&q=80"
+                        src={cmsRaw(pillarCms(1), "media_url", "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=800&q=80")}
                         alt="Nutrition and digestive wellness"
                         className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                       />
@@ -866,13 +884,13 @@ export default function HomePage() {
 
                     <div className="px-space-lg pt-2">
                       <div className="inline-block px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-label-sm text-[10px] uppercase tracking-wider font-extrabold mb-space-xs">
-                        {t("home.pillars.p1.tag")}
+                        {cmsEn(pillarCms(1), "badge_en", t("home.pillars.p1.tag"))}
                       </div>
                       <h3 className="font-headline-sm text-headline-sm text-espresso mb-space-xs font-serif font-bold">
-                        {t("home.pillars.p1.title")}
+                        {cmsEn(pillarCms(1), "title_en", t("home.pillars.p1.title"))}
                       </h3>
                       <p className="font-body-sm text-body-sm text-espresso/75 leading-relaxed mb-space-md">
-                        {t("home.pillars.p1.desc")}
+                        {cmsEn(pillarCms(1), "description_en", t("home.pillars.p1.desc"))}
                       </p>
                       <ul className="flex flex-col gap-2 mb-space-md font-body-sm text-body-sm text-espresso/80">
                         <li className="flex items-center gap-1.5">
@@ -908,9 +926,9 @@ export default function HomePage() {
                   <div className="px-space-lg pb-space-lg">
                     <Link
                       className="w-full inline-flex items-center justify-center gap-1.5 bg-emerald-600 hover:bg-emerald-700 text-white font-label-md text-label-md py-2.5 rounded-full transition-all shadow-xs cursor-pointer"
-                      href="/pilares#pilar-nutricion"
+                      href={cmsRaw(pillarCms(1), "cta_link", "/pilares#pilar-nutricion")}
                     >
-                      <span>{t("home.pillars.p1.cta")}</span>
+                      <span>{cmsEn(pillarCms(1), "cta_text_en", t("home.pillars.p1.cta"))}</span>
                       <span className="material-symbols-outlined notranslate text-[16px]" translate="no">
                         &#xe5c8;
                       </span>
@@ -923,7 +941,7 @@ export default function HomePage() {
                   <div>
                     <div className="relative h-44 w-full overflow-hidden">
                       <img
-                        src="https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=800&q=80"
+                        src={cmsRaw(pillarCms(2), "media_url", "https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=800&q=80")}
                         alt="Library and workbooks"
                         className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                       />
@@ -940,13 +958,13 @@ export default function HomePage() {
 
                     <div className="px-space-lg pt-2">
                       <div className="inline-block px-2.5 py-0.5 rounded-full bg-orange-100 text-orange-800 font-label-sm text-[10px] uppercase tracking-wider font-extrabold mb-space-xs">
-                        {t("home.pillars.p2.tag")}
+                        {cmsEn(pillarCms(2), "badge_en", t("home.pillars.p2.tag"))}
                       </div>
                       <h3 className="font-headline-sm text-headline-sm text-espresso mb-space-xs font-serif font-bold">
-                        {t("home.pillars.p2.title")}
+                        {cmsEn(pillarCms(2), "title_en", t("home.pillars.p2.title"))}
                       </h3>
                       <p className="font-body-sm text-body-sm text-espresso/75 leading-relaxed mb-space-md">
-                        {t("home.pillars.p2.desc")}
+                        {cmsEn(pillarCms(2), "description_en", t("home.pillars.p2.desc"))}
                       </p>
                       <ul className="flex flex-col gap-2 mb-space-md font-body-sm text-body-sm text-espresso/80">
                         <li className="flex items-center gap-1.5">
@@ -982,9 +1000,9 @@ export default function HomePage() {
                   <div className="px-space-lg pb-space-lg">
                     <Link
                       className="w-full inline-flex items-center justify-center gap-1.5 bg-[#D97757] hover:bg-[#C26748] text-white font-label-md text-label-md py-2.5 rounded-full transition-all shadow-xs cursor-pointer"
-                      href="/pilares#pilar-biblioteca"
+                      href={cmsRaw(pillarCms(2), "cta_link", "/pilares#pilar-biblioteca")}
                     >
-                      <span>{t("home.pillars.p2.cta")}</span>
+                      <span>{cmsEn(pillarCms(2), "cta_text_en", t("home.pillars.p2.cta"))}</span>
                       <span className="material-symbols-outlined notranslate text-[16px]" translate="no">
                         &#xf090;
                       </span>
@@ -997,7 +1015,7 @@ export default function HomePage() {
                   <div>
                     <div className="relative h-44 w-full overflow-hidden">
                       <img
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZsgwks_RyAgE_KXp4z3vJo3vyauRAVNcN7i-vaSIYvA5ldslg6CkSx3WXip2kURyqMb-_E-BIgEhwqt3OggYZSs53WtZ7xmfJMgB4nWYGyHD5voFeJPtXoQO_OBVM7lLpTzHNEjEuuXLqvEOTkLaCoKZH1397SiR0Nkwdz05mkOgdUslVoZHeoVPmoyPY_uXBnwkSAoYxrPoSkY2a6ulpjiPRpRUQKjHrmIOsgEM"
+                        src={cmsRaw(pillarCms(3), "media_url", "https://lh3.googleusercontent.com/aida-public/AB6AXuBZsgwks_RyAgE_KXp4z3vJo3vyauRAVNcN7i-vaSIYvA5ldslg6CkSx3WXip2kURyqMb-_E-BIgEhwqt3OggYZSs53WtZ7xmfJMgB4nWYGyHD5voFeJPtXoQO_OBVM7lLpTzHNEjEuuXLqvEOTkLaCoKZH1397SiR0Nkwdz05mkOgdUslVoZHeoVPmoyPY_uXBnwkSAoYxrPoSkY2a6ulpjiPRpRUQKjHrmIOsgEM")}
                         alt="Video workshops and gentle mobility"
                         className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                       />
@@ -1014,13 +1032,13 @@ export default function HomePage() {
 
                     <div className="px-space-lg pt-2">
                       <div className="inline-block px-2.5 py-0.5 rounded-full bg-blue-100 text-blue-800 font-label-sm text-[10px] uppercase tracking-wider font-extrabold mb-space-xs">
-                        {t("home.pillars.p3.tag")}
+                        {cmsEn(pillarCms(3), "badge_en", t("home.pillars.p3.tag"))}
                       </div>
                       <h3 className="font-headline-sm text-headline-sm text-espresso mb-space-xs font-serif font-bold">
-                        {t("home.pillars.p3.title")}
+                        {cmsEn(pillarCms(3), "title_en", t("home.pillars.p3.title"))}
                       </h3>
                       <p className="font-body-sm text-body-sm text-espresso/75 leading-relaxed mb-space-md">
-                        {t("home.pillars.p3.desc")}
+                        {cmsEn(pillarCms(3), "description_en", t("home.pillars.p3.desc"))}
                       </p>
                       <ul className="flex flex-col gap-2 mb-space-md font-body-sm text-body-sm text-espresso/80">
                         <li className="flex items-center gap-1.5">
@@ -1056,9 +1074,9 @@ export default function HomePage() {
                   <div className="px-space-lg pb-space-lg">
                     <Link
                       className="w-full inline-flex items-center justify-center gap-1.5 bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-label-md text-label-md py-2.5 rounded-full transition-all shadow-xs cursor-pointer"
-                      href="/pilares#pilar-movilidad"
+                      href={cmsRaw(pillarCms(3), "cta_link", "/pilares#pilar-movilidad")}
                     >
-                      <span>{t("home.pillars.p3.cta")}</span>
+                      <span>{cmsEn(pillarCms(3), "cta_text_en", t("home.pillars.p3.cta"))}</span>
                       <span className="material-symbols-outlined notranslate text-[16px]" translate="no">
                         &#xe037;
                       </span>
@@ -1071,7 +1089,7 @@ export default function HomePage() {
                   <div>
                     <div className="relative h-44 w-full overflow-hidden">
                       <img
-                        src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=800&q=80"
+                        src={cmsRaw(pillarCms(4), "media_url", "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=800&q=80")}
                         alt="Family, partners and children"
                         className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                       />
@@ -1088,13 +1106,13 @@ export default function HomePage() {
 
                     <div className="px-space-lg pt-2">
                       <div className="inline-block px-2.5 py-0.5 rounded-full bg-rose-100 text-rose-800 font-label-sm text-[10px] uppercase tracking-wider font-extrabold mb-space-xs">
-                        {t("home.pillars.p4.tag")}
+                        {cmsEn(pillarCms(4), "badge_en", t("home.pillars.p4.tag"))}
                       </div>
                       <h3 className="font-headline-sm text-headline-sm text-espresso mb-space-xs font-serif font-bold">
-                        {t("home.pillars.p4.title")}
+                        {cmsEn(pillarCms(4), "title_en", t("home.pillars.p4.title"))}
                       </h3>
                       <p className="font-body-sm text-body-sm text-espresso/75 leading-relaxed mb-space-md">
-                        {t("home.pillars.p4.desc")}
+                        {cmsEn(pillarCms(4), "description_en", t("home.pillars.p4.desc"))}
                       </p>
                       <ul className="flex flex-col gap-2 mb-space-md font-body-sm text-body-sm text-espresso/80">
                         <li className="flex items-center gap-1.5">
@@ -1130,9 +1148,9 @@ export default function HomePage() {
                   <div className="px-space-lg pb-space-lg">
                     <Link
                       className="w-full inline-flex items-center justify-center gap-1.5 bg-[#C4546A] hover:bg-[#A83D52] text-white font-label-md text-label-md py-2.5 rounded-full transition-all shadow-xs cursor-pointer"
-                      href="/cuidadores"
+                      href={cmsRaw(pillarCms(4), "cta_link", "/cuidadores")}
                     >
-                      <span>{t("home.pillars.p4.cta")}</span>
+                      <span>{cmsEn(pillarCms(4), "cta_text_en", t("home.pillars.p4.cta"))}</span>
                       <span className="material-symbols-outlined notranslate text-[16px]" translate="no">
                         &#xf1bd;
                       </span>

@@ -21,7 +21,7 @@ declare global {
   var __naraDbInitPromise: Promise<void> | undefined;
 }
 
-const CURRENT_SEED_VERSION = 2;
+const CURRENT_SEED_VERSION = 5;
 
 export function getPool(): Pool {
   if (!globalThis.__naraPgPool) {
